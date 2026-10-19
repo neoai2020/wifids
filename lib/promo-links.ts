@@ -83,15 +83,6 @@ function normalizeOffer(raw: unknown, index: number, fallback: ExclusiveOffer): 
   }
 }
 
-function padExclusiveOffers(list: ExclusiveOffer[]): ExclusiveOffer[] {
-  const defaults = getDefaultExclusiveOffers()
-  const next = [...list]
-  while (next.length < 3) {
-    next.push(defaults[next.length] ?? defaults[0])
-  }
-  return next.slice(0, 3)
-}
-
 export interface PromoLinksRow {
   id: number
   exclusive_offers_enabled: boolean
@@ -110,10 +101,10 @@ export function rowToPromoLinks(row: PromoLinksRow | null | undefined): PromoLin
   const defaults = getDefaultPromoLinks()
   if (!row) return defaults
 
-  const rawList = Array.isArray(row.exclusive_offers) ? row.exclusive_offers : defaults.exclusiveOffers
-  const offersList = padExclusiveOffers(
-    rawList.map((item, index) => normalizeOffer(item, index, defaults.exclusiveOffers[index] ?? defaults.exclusiveOffers[0])),
-  )
+  const rawList = Array.isArray(row.exclusive_offers) ? row.exclusive_offers : null
+  const offersList = rawList
+    ? rawList.map((item, index) => normalizeOffer(item, index, defaults.exclusiveOffers[index] ?? defaults.exclusiveOffers[0]))
+    : defaults.exclusiveOffers
 
   return {
     exclusiveOffersEnabled: row.exclusive_offers_enabled ?? defaults.exclusiveOffersEnabled,

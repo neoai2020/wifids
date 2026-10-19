@@ -25,7 +25,8 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/api/track/specialist-popup/") ||
     pathname === "/api/auth/ensure-admin" ||
     pathname.startsWith("/api/auth/ensure-admin/") ||
-    pathname === "/api/auth/forgot-password"
+    pathname === "/api/auth/forgot-password" ||
+    pathname.startsWith("/api/internal/")
   ) {
     return withRobotsTag(NextResponse.next({ request }))
   }
