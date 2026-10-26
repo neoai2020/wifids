@@ -1,6 +1,6 @@
 export const APP_ORIGINS = [
-  "https://wificodemembers.com",
-  "https://www.wificodemembers.com",
+  "https://getwifigiditalsystem.com",
+  "https://www.getwifigiditalsystem.com",
 ] as const
 
 const DEFAULT_SITE_URL = APP_ORIGINS[0]
@@ -27,10 +27,6 @@ export function getSiteUrl(): string {
     if (isAllowedOrigin(configured)) {
       return configured
     }
-  }
-
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
   }
 
   return DEFAULT_SITE_URL
