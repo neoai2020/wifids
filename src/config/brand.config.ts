@@ -1,4 +1,4 @@
-export const PRODUCT_NAME = "Wifi System"
+export const PRODUCT_NAME = "Wifi Digital System"
 
 export const brand = {
   productName: PRODUCT_NAME,
@@ -11,7 +11,6 @@ export const brand = {
     icon: "Wifi",
     src: "/logo.png?v=20261006",
     iconSrc: "/logo-icon.png?v=20261006",
-    wordmarkSrc: "/logo-wordmark.png?v=20261006b",
     alt: PRODUCT_NAME,
     wordmark: true,
   },

@@ -4,8 +4,8 @@ import { PREMIUM_FEATURE_LABELS } from "@/lib/premium-features"
 import { getVideoThumbnail, type VideoThumbnailSlug } from "@/lib/video-thumbnails"
 
 export const PREMIUM_TRAINING_VIMEO_IDS = {
-  dfyProfit: "1226577445",
-  accelerator: "1226577449",
+  dfyProfit: "1235396681",
+  accelerator: "1235391741",
   recurringStreams: "1226547482",
   socialPayouts: "1226545479",
   protector: "1226546051",
@@ -36,7 +36,7 @@ export const PREMIUM_TRAINING_VIDEOS: readonly PremiumTrainingVideo[] = [
     description:
       "Treat Unlimited like a library you visit every morning — not a shortcut you open once and forget.",
     duration: "6 min",
-    vimeoId: "1226543582",
+    vimeoId: "1235394431",
     thumbnailSlug: "unlimited-mindset",
     feature: PREMIUM_FEATURE_LABELS.dfyVault,
     badge: "Mindset",
@@ -172,7 +172,7 @@ export const PREMIUM_TRAINING_VIDEOS: readonly PremiumTrainingVideo[] = [
     description:
       "Why one link and one niche is enough to ship a full promo kit — before you run Done-For-You Profit.",
     duration: "6 min",
-    vimeoId: "1226574609",
+    vimeoId: "1235394430",
     thumbnailSlug: "done-for-you-profit-mindset",
     feature: PREMIUM_FEATURE_LABELS.dfyProfit,
     badge: "Mindset",

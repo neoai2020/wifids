@@ -31,20 +31,15 @@ export function BrandLogo({
   )
 
   if (variant === "wordmark") {
-    const wordHeight = Math.round(size * 0.72)
-    const wordWidth = Math.round(wordHeight * (452 / 98))
     return (
       <span className={cn("inline-flex min-w-0 items-center gap-2.5", className)}>
         {mark}
-        <Image
-          src={brand.logo.wordmarkSrc}
-          alt={brand.logo.alt}
-          width={wordWidth}
-          height={wordHeight}
-          priority={priority}
-          className="h-auto max-w-full object-contain"
-          style={{ height: wordHeight, width: "auto", maxWidth: "100%" }}
-        />
+        <span
+          className="min-w-0 font-[family-name:var(--font-brand)] font-semibold uppercase leading-[1.15] tracking-[0.12em] text-[var(--text-heading)]"
+          style={{ fontSize: Math.max(11, Math.round(size * 0.32)) }}
+        >
+          {brand.productName}
+        </span>
       </span>
     )
   }

@@ -34,6 +34,19 @@ export const VIDEO_THUMBNAIL_PATHS = {
 export type VideoThumbnailSlug = keyof typeof VIDEO_THUMBNAIL_PATHS
 
 const VIMEO_TO_SLUG: Partial<Record<string, VideoThumbnailSlug>> = {
+  "1235391742": "watch-this-first",
+  "1235391739": "how-the-money-flows",
+  "1235394445": "your-5-minute-tour",
+  "1235391738": "gold-rush-mindset",
+  "1235395012": "gold-rush",
+  "1235393228": "my-vault-mindset",
+  "1235395706": "my-vault",
+  "1235394009": "link-vault-mindset",
+  "1235395782": "link-vault",
+  "1235394431": "unlimited-mindset",
+  "1235391741": "unlimited",
+  "1235394430": "done-for-you-profit-mindset",
+  "1235396681": "done-for-you-profit",
   "1225645049": "watch-this-first",
   "1225645048": "how-the-money-flows",
   "1226575133": "your-5-minute-tour",
