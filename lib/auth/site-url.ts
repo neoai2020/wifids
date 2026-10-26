@@ -1,12 +1,14 @@
-export const APP_ORIGINS = [
-  "https://getwifigiditalsystem.com",
-  "https://www.getwifigiditalsystem.com",
-] as const
+const LIVE_SITE_URL = "https://www.getwifigiditalsystem.com"
 
-const DEFAULT_SITE_URL = APP_ORIGINS[0]
+export const APP_ORIGINS = [LIVE_SITE_URL] as const
+
+const DEFAULT_SITE_URL = LIVE_SITE_URL
 
 function normalizeOrigin(url: string): string {
-  return url.replace(/\/$/, "")
+  const origin = url.replace(/\/$/, "")
+  // Apex has no DNS record; www is the host that resolves to the app.
+  if (origin === "https://getwifigiditalsystem.com") return LIVE_SITE_URL
+  return origin
 }
 
 function isAllowedOrigin(origin: string): boolean {
