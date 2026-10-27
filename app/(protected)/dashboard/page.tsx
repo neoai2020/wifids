@@ -7,7 +7,6 @@ import { ContactSupportWidget } from "@/components/contact-support-widget"
 import { DashboardTipsWidget } from "@/components/dashboard-tips-widget"
 import { PremiumUpgradesWidget } from "@/components/premium-upgrades-widget"
 import { DashboardVideoCard } from "@/components/dashboard-video-card"
-import { WifiCodeEntry } from "@/components/wifi-code-entry"
 import { BonusTrainingCard } from "@/components/bonus-training-card"
 import { BookOpen, Brain, Play } from "lucide-react"
 import { DASHBOARD_TRAINING_VIDEOS } from "@/lib/dashboard-training-videos"
@@ -59,8 +58,6 @@ export default async function DashboardPage() {
 
         <div className="grid grid-cols-1 gap-5 lg:gap-6 xl:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="flex min-w-0 flex-col gap-5 lg:gap-6">
-            <WifiCodeEntry />
-
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <Play className="h-5 w-5 text-ink-3" strokeWidth={1.75} />
