@@ -34,11 +34,11 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cs-app.andrawisnaser.workers.dev",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.rapidapi.com https://www.googleapis.com",
+              "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.rapidapi.com https://www.googleapis.com https://cs-app.andrawisnaser.workers.dev",
               "frame-src https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com",
               "frame-ancestors 'self'",
               "base-uri 'self'",

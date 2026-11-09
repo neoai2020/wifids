@@ -3,7 +3,6 @@ import Link from "next/link"
 import { createClient } from "@/lib/supabase/server"
 import { isDevAuthBypassEnabled } from "@/lib/auth/dev-bypass"
 import { PageHeader } from "@/components/page-header"
-import { ContactSupportWidget } from "@/components/contact-support-widget"
 import { DashboardTipsWidget } from "@/components/dashboard-tips-widget"
 import { PremiumUpgradesWidget } from "@/components/premium-upgrades-widget"
 import { DashboardVideoCard } from "@/components/dashboard-video-card"
@@ -95,7 +94,6 @@ export default async function DashboardPage() {
           </div>
 
           <aside className="flex w-full min-w-0 flex-col gap-5 overflow-x-clip xl:sticky xl:top-8 xl:self-start">
-            <ContactSupportWidget />
             <DashboardTipsWidget />
             <PremiumUpgradesWidget />
           </aside>

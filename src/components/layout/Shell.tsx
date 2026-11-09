@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic"
 import { usePathname } from "next/navigation"
 import { AppSidebar } from "@/components/app-sidebar"
-import { SupportCtaBanner } from "@/components/layout/SupportCtaBanner"
+import { SupportChatScript } from "@/components/support-chat-script"
 
 const BottomNav = dynamic(
   () => import("@/components/bottom-nav").then((m) => ({ default: m.BottomNav })),
@@ -35,12 +35,6 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
   const isPublicPage = PUBLIC_SHELL_BYPASS_PREFIXES.some((prefix) => pathname.startsWith(prefix))
 
-  const hideSupportBanner =
-    pathname === "/support" ||
-    pathname.startsWith("/support/") ||
-    pathname === "/admin" ||
-    pathname.startsWith("/admin/")
-
   // Mount on login + app so SIGNED_IN can open the popup, then survive the
   // redirect into the dashboard. Sign-up and onboarding skip it. Embed/dev
   // render their own copy.
@@ -71,7 +65,6 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <main className="app-main-canvas relative z-[1] min-w-0 flex-1 overflow-x-clip overflow-y-auto scroll-smooth px-4 pb-[calc(6.5rem+env(safe-area-inset-bottom,0px))] pt-[calc(var(--mobile-header-h,3.75rem)+env(safe-area-inset-top,0px))] transition-[padding] duration-300 sm:px-6 lg:pb-16 lg:pl-[var(--sidebar-gap)] lg:pr-12 lg:pt-6">
             <div className="app-content-layer flex min-h-full w-full min-w-0 flex-col gap-0">
               {children}
-              {!hideSupportBanner ? <SupportCtaBanner className="mx-auto mt-6 w-full max-w-7xl sm:mt-8" /> : null}
             </div>
           </main>
         </div>
@@ -84,6 +77,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
     <>
       {chrome}
       {specialistPopup}
+      {!isPublicPage ? <SupportChatScript /> : null}
     </>
   )
 }

@@ -42,8 +42,8 @@ export const FEATURE_CATALOG: FeatureMeta[] = [
   { id: "protector", tier: "premium", description: "Cyber Protection." },
 ]
 
-/** All Wifi Code modules enabled. */
-export const enabledFeatures: FeatureId[] = [...FEATURE_IDS]
+/** All Wifi Code modules enabled except Support nav (replaced by live chat). */
+export const enabledFeatures: FeatureId[] = FEATURE_IDS.filter((id) => id !== "support")
 
 export function isFeatureEnabled(id: FeatureId): boolean {
   return enabledFeatures.includes(id)

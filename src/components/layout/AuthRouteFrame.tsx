@@ -1,7 +1,6 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { AuthSupportWidget } from "@/components/auth-support-widget"
 import { AuthLayout } from "@/components/layout/AuthLayout"
 import { brand } from "@/config/brand.config"
 
@@ -13,10 +12,5 @@ export function AuthRouteFrame({ children }: { children: React.ReactNode }) {
     return <>{children}</>
   }
 
-  return (
-    <>
-      <AuthLayout subtitle={brand.authTagline}>{children}</AuthLayout>
-      <AuthSupportWidget />
-    </>
-  )
+  return <AuthLayout subtitle={brand.authTagline}>{children}</AuthLayout>
 }

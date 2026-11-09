@@ -3207,3 +3207,288 @@ html[data-sidebar="collapsed"] {
   font-size: 14px;
   padding: 0.65rem 1rem;
 }
+
+/* Live chat widget — match Wifi Digital dark burgundy surfaces (contact-form look). */
+.sw-root {
+  --sw-brand: #8c2637 !important;
+  --sw-panel: #2a1e22 !important;
+  --sw-panel-soft: #322228 !important;
+  --sw-field: #1a1316 !important;
+  --sw-ink: #f4eef0 !important;
+  --sw-muted: #a88e94 !important;
+  --sw-line: rgba(244, 238, 240, 0.14) !important;
+  color-scheme: dark !important;
+}
+
+.sw-launcher,
+.sw-header,
+.sw-start,
+.sw-composer button,
+.sw-user {
+  background: #8c2637 !important;
+  color: #fff !important;
+}
+
+.sw-panel {
+  background: var(--sw-panel) !important;
+  color: var(--sw-ink) !important;
+  border: 1px solid var(--sw-line) !important;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(140, 38, 55, 0.18) !important;
+  color-scheme: dark !important;
+}
+
+.sw-body {
+  background: #24191c !important;
+  color: var(--sw-ink) !important;
+}
+
+.sw-pre-bubble,
+.sw-assistant,
+.sw-typing {
+  background: var(--sw-panel-soft) !important;
+  color: var(--sw-ink) !important;
+  border: 1px solid var(--sw-line) !important;
+  box-shadow: none !important;
+}
+
+.sw-pre-hi img,
+.sw-row img {
+  border-color: var(--sw-line) !important;
+  background: var(--sw-panel) !important;
+}
+
+.sw-field span {
+  color: var(--sw-muted) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+}
+
+.sw-field small {
+  color: color-mix(in srgb, var(--sw-muted) 80%, #000) !important;
+}
+
+.sw-field input,
+.sw-composer input {
+  background: var(--sw-field) !important;
+  color: var(--sw-ink) !important;
+  border: 1px solid var(--sw-line) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+.sw-field input::placeholder,
+.sw-composer input::placeholder {
+  color: color-mix(in srgb, var(--sw-muted) 75%, transparent) !important;
+}
+
+.sw-composer input:focus,
+.sw-field input:focus {
+  border-color: #8c2637 !important;
+  outline: 2px solid color-mix(in srgb, #8c2637 40%, transparent) !important;
+}
+
+.sw-composer {
+  background: var(--sw-panel) !important;
+  border-top: 1px solid var(--sw-line) !important;
+}
+
+.sw-email-bar {
+  background: color-mix(in srgb, #8c2637 16%, var(--sw-panel)) !important;
+  border-top: 1px solid var(--sw-line) !important;
+  color: var(--sw-muted) !important;
+}
+
+.sw-email-bar strong {
+  color: var(--sw-ink) !important;
+}
+
+.sw-greet {
+  background: var(--sw-panel-soft) !important;
+  color: var(--sw-ink) !important;
+  border: 1px solid var(--sw-line) !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+.sw-greet-x {
+  background: color-mix(in srgb, #8c2637 28%, var(--sw-panel)) !important;
+  color: var(--sw-ink) !important;
+}
+
+.sw-greet-x:hover {
+  background: #8c2637 !important;
+  color: #fff !important;
+}
+
+.sw-typing i {
+  background: var(--sw-muted) !important;
+}
+
+.sw-launcher {
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(140, 38, 55, 0.35) !important;
+  /* Idle most of the cycle, then a short pop — repeats every 6s */
+  animation: sw-launcher-pop 6s ease-in-out infinite !important;
+}
+
+@keyframes sw-launcher-pop {
+  0%,
+  82%,
+  100% {
+    transform: scale(1);
+  }
+  86% {
+    transform: scale(1.07);
+  }
+  90% {
+    transform: scale(0.97);
+  }
+  94% {
+    transform: scale(1.04);
+  }
+  98% {
+    transform: scale(1);
+  }
+}
+
+.sw-launcher:hover,
+.sw-start:hover,
+.sw-composer button:hover {
+  background: #65101e !important;
+  filter: none !important;
+}
+
+.sw-start,
+.sw-composer button {
+  border-radius: 999px !important;
+  box-shadow: 0 6px 18px rgba(140, 38, 55, 0.35) !important;
+}
+
+.sw-composer button {
+  min-height: 48px !important;
+  padding: 0 22px !important;
+}
+
+.sw-close {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+.sw-close svg {
+  display: block !important;
+  flex: none !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.sw-link-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin: 10px 0 2px !important;
+  padding: 10px 16px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  background: #8c2637 !important;
+  color: #fff !important;
+  font: 700 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(140, 38, 55, 0.35) !important;
+}
+
+.sw-link-btn:hover {
+  background: #65101e !important;
+  color: #fff !important;
+}
+
+.sw-assistant p:has(> .sw-link-btn) {
+  margin: 4px 0 !important;
+}
+
+@media (max-width: 1023px) {
+  /* Mobile launcher: JS toggles .sw-wifi-expand / .sw-wifi-pop on a timer. */
+  .sw-launcher.sw-wifi-mobile {
+    animation: none !important;
+    overflow: hidden !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 60px !important;
+    max-width: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    gap: 0 !important;
+    padding: 8px !important;
+    transition:
+      width 0.45s ease,
+      max-width 0.45s ease,
+      gap 0.45s ease,
+      padding 0.45s ease,
+      transform 0.35s ease !important;
+  }
+
+  .sw-launcher.sw-wifi-mobile img {
+    flex: none !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .sw-launcher.sw-wifi-mobile .sw-launcher-text {
+    flex: none !important;
+    max-width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    transition:
+      max-width 0.45s ease,
+      opacity 0.3s ease !important;
+  }
+
+  .sw-launcher.sw-wifi-mobile.sw-wifi-expand {
+    width: 280px !important;
+    max-width: 280px !important;
+    gap: 12px !important;
+    padding: 10px 16px 10px 10px !important;
+  }
+
+  .sw-launcher.sw-wifi-mobile.sw-wifi-expand .sw-launcher-text {
+    max-width: 210px !important;
+    opacity: 1 !important;
+  }
+
+  .sw-launcher.sw-wifi-mobile.sw-wifi-pop {
+    transform: scale(1.06) !important;
+  }
+
+  body:has(.app-bottom-nav) .sw-launcher {
+    bottom: calc(4rem + env(safe-area-inset-bottom, 0px) + 12px) !important;
+  }
+  body:has(.app-bottom-nav) .sw-greet {
+    bottom: calc(4rem + env(safe-area-inset-bottom, 0px) + 80px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .sw-panel {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+  }
+}
