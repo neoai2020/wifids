@@ -3276,7 +3276,7 @@ html[data-sidebar="collapsed"] {
   background: var(--sw-field) !important;
   color: var(--sw-ink) !important;
   border: 1px solid var(--sw-line) !important;
-  border-radius: 14px !important;
+  border-radius: 999px !important;
   box-shadow: none !important;
 }
 
@@ -3370,8 +3370,10 @@ html[data-sidebar="collapsed"] {
 }
 
 .sw-composer button {
-  min-height: 48px !important;
-  padding: 0 22px !important;
+  min-height: 40px !important;
+  min-width: 72px !important;
+  padding: 0 14px !important;
+  font-size: 14px !important;
 }
 
 .sw-close {
