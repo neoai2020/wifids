@@ -43,11 +43,11 @@ export default function SignUpPage() {
         password,
         options: {
           data: { full_name: trimmedName },
-          emailRedirectTo: `${window.location.origin}/auth/callback?next=/onboarding`,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=/dashboard`,
         },
       })
       if (error) throw error
-      router.push("/onboarding")
+      router.push("/dashboard")
     } catch (error: unknown) {
       clearSpecialistPopupFromSignup()
       const message =

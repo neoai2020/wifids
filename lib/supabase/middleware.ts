@@ -98,44 +98,15 @@ export async function updateSession(request: NextRequest) {
 
   const authPathsAllowedWhenLoggedIn = ["/auth/callback", "/auth/reset-password"]
   const isOnboardingRoute = pathname === "/onboarding" || pathname.startsWith("/onboarding/")
-  const isResetPasswordRoute =
-    pathname.startsWith("/auth/reset-password") || pathname === "/reset-password"
-
-  let onboardingState: "complete" | "incomplete" | "unknown" | null = null
-
-  async function getOnboardingState() {
-    if (!user || isAdmin) return "complete" as const
-    if (onboardingState) return onboardingState
-
-    const { data: profile, error: profileError } = await supabase
-      .from("users")
-      .select("onboarding_completed_at")
-      .eq("id", user.id)
-      .single()
-
-    if (profileError) {
-      onboardingState = "unknown"
-      return onboardingState
-    }
-
-    onboardingState = profile?.onboarding_completed_at ? "complete" : "incomplete"
-    return onboardingState
-  }
 
   // Redirect authenticated users away from auth pages (except password reset flow).
-  // Incomplete members go straight to /onboarding instead of bouncing via /dashboard.
   if (user && request.nextUrl.pathname.startsWith("/auth")) {
     const isAllowed = authPathsAllowedWhenLoggedIn.some(
       (path) => request.nextUrl.pathname === path || request.nextUrl.pathname.startsWith(`${path}/`),
     )
     if (!isAllowed) {
       const url = request.nextUrl.clone()
-      if (isAdmin) {
-        url.pathname = "/admin"
-      } else {
-        const state = await getOnboardingState()
-        url.pathname = state === "incomplete" ? "/onboarding" : postLoginPath
-      }
+      url.pathname = postLoginPath
       return NextResponse.redirect(url)
     }
   }
@@ -155,22 +126,12 @@ export async function updateSession(request: NextRequest) {
     return supabaseResponse
   }
 
-  if (user && !isOnboardingRoute && !isResetPasswordRoute && !pathname.startsWith("/auth")) {
-    const state = await getOnboardingState()
-    if (state === "incomplete") {
-      const url = request.nextUrl.clone()
-      url.pathname = "/onboarding"
-      return NextResponse.redirect(url)
-    }
-  }
-
+  // The specialist consultation is hidden. Anyone who still lands on
+  // /onboarding (old email links, bookmarks) goes straight to the app.
   if (user && isOnboardingRoute) {
-    const state = await getOnboardingState()
-    if (state === "complete") {
-      const url = request.nextUrl.clone()
-      url.pathname = postLoginPath
-      return NextResponse.redirect(url)
-    }
+    const url = request.nextUrl.clone()
+    url.pathname = postLoginPath
+    return NextResponse.redirect(url)
   }
 
   return supabaseResponse
